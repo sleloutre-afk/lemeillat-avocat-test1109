@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+}
+
+@theme {
+  --color-bordeaux: #8c3b44;
+  --color-bordeaux-dark: #6e2a33;
+  --color-bordeaux-light: #b5676c;
+  --color-rose: #f4e6e4;
+  --color-rose-pale: #faf3f1;
+  --color-creme: #fdfaf8;
+  --color-encre: #2e3236;
+  --color-ardoise: #4a5258;
+  --color-muted: #6c6466;
+  --color-ligne: #eadad7;
+  --color-safran: #e6a73e;
+  --color-safran-pale: #fbecd0;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  background: #fdfaf8;
+  color: #2e3236;
+  font-family: var(--font-sans);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes ken-burns {
+  0%   { transform: scale(1.00) translate(0, 0); }
+  50%  { transform: scale(1.06) translate(-1%, 0.5%); }
+  100% { transform: scale(1.00) translate(0, 0); }
+}
+.ken-burns { animation: ken-burns 22s ease-in-out infinite; }
+
+/* Point qui tourne sur les cercles décoratifs */
+@keyframes orbit { to { transform: rotate(360deg); } }
+.orbit { animation: orbit 40s linear infinite; }
+
+/* Changement de contenu du panneau « Ce que je fais pour vous » */
+@keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.fade-in { animation: fade-in 0.3s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ken-burns, .orbit, .fade-in { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Corps des publications */
+.article-body h2 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #2e3236;
+  margin: 2.5rem 0 1rem;
+}
+.article-body p { margin: 0 0 1.25rem; }
